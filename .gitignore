@@ -1,0 +1,4 @@
+src/Config/BotCredentials.ts
+/dist
+/res
+/node_modules
