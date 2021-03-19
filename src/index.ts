@@ -1,4 +1,4 @@
-//necessary for loading telegram bot
+//necessary import for loading telegram bot correctly
 import TelegramBot, { EventEmitter } from "node-telegram-bot-api";
 
 
@@ -7,8 +7,6 @@ import { Scheduler } from "./Services/Scheduler";
 import { ElectronicsForU } from "./WebShops/ElectronicsForU";
 import { Gamestop } from "./WebShops/Gamestop";
 import { Libro } from "./WebShops/Libro";
-import { MediaMarkt } from "./WebShops/MediaMarkt";
-import { Otto } from "./WebShops/Otto";
 
 let shops = [
     Libro,
