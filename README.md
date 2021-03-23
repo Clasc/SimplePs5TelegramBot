@@ -23,8 +23,8 @@ This bot is scraping a website and checks for stuff that may indicate, that a ps
 
 ## Register for notifications
 Run the application, than go to your bot on telegram, and write 'notifyme'.
-It then responses with a message, that you should be notified.
-If you want to check if it is still running, you can always send him 'hello' and wait for a response.
+It then responses with a message, indicating that you will be notified.
+If you want to check if it is still running, you can always send 'hello' and wait for a response.
 
 ## Extending the Bot
 You only have to create a new webshop with the specified interface, and add your scraping method with cheerio.
@@ -33,5 +33,5 @@ The webshop then has to be added to the array on index.ts.
 ## Known Issues
 * The Bot can only scrape HTML, because of the architecture. Restructuring is necessary to enable other methods.
 Other scraping methods, like accessing a REST or GraphQL API are not supported, since I simply did not have the time. 
-* If a product is available, the bot keeps sending notifications to every user even if they already got one. Which means all users will get notifications every minute.
+* If a product is available, the bot keeps sending notifications to every user even if they already got one. Which means all users will get notifications every minute. This stops, when a ps5 is not available anymore.
 
