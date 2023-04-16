@@ -1,16 +1,16 @@
 import rp from "request-promise";
-import { BotService } from "./Services/BotService";
+
 import { WebShop } from "./WebShops/WebShop";
+import { Bot } from "./Bot/Bot";
+import { getMessage } from "./getMessage/getMessage";
 
-export class Scraper {
-    private botService = BotService.instance;
-
-    public async scrape(shops: WebShop[]): Promise<void> {
-        for (let shop of shops) {
+export const Scraper = (bot: Bot) => {
+    const scrape = async (shops: WebShop[]) => {
+        for (const shop of shops) {
             try {
-                let res = await rp(shop.productPage);
+                const res = await rp(shop.productPage);
                 if (shop.hasPs5(res)) {
-                    this.botService.sendMessage(shop);
+                    bot.sendMessage(getMessage(shop));
                 }
             }
             catch (error) {
@@ -18,4 +18,5 @@ export class Scraper {
             }
         }
     }
+    return { scrape };
 }

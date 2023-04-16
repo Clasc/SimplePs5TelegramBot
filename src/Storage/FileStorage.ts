@@ -1,7 +1,8 @@
 import fs from "fs";
+import { DataStorage } from "./DataStorage";
 
-export class Reader {
-    async read(path: string) {
+export const FileStorage: () => DataStorage = () => {
+    const read = async (path: string) => {
         return new Promise<string>((resolve, reject) => fs.readFile(path, (err, data) => {
             if (err) {
                 reject(err);
@@ -12,7 +13,7 @@ export class Reader {
         }))
     }
 
-    async write(path: string, data: any) {
+    const write = async (path: string, data: string) => {
         return new Promise<void>((resolve, reject) => fs.writeFile(path, data, { encoding: "utf-8" }, (err) => {
             if (err) {
                 reject(err);
@@ -22,4 +23,6 @@ export class Reader {
             }
         }))
     }
+
+    return { read, write };
 }

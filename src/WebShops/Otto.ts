@@ -1,7 +1,7 @@
 import cheerioModule from "cheerio";
 import { WebShop } from "./WebShop";
 
-export let Otto: WebShop = {
+export const Otto: WebShop = {
     url: "https://www.ottoversand.at/",
     productPage: "",
     api: "https://www.ottoversand.at/api/search/search",
