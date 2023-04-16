@@ -1,6 +1,7 @@
 import rp from "request-promise";
-import { Bot } from "./Services/Bot/Bot";
+
 import { WebShop } from "./WebShops/WebShop";
+import { Bot } from "./Bot/Bot";
 
 export const Scraper = (bot: Bot) => {
     const scrape = async (shops: WebShop[]) => {

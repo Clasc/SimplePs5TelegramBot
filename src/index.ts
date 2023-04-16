@@ -3,13 +3,13 @@ import TelegramBot, { EventEmitter } from "node-telegram-bot-api";
 
 
 import { Scraper } from "./Scraper";
-import { Scheduler } from "./Services/Scheduler";
+import { Scheduler } from "./Scheduler/Scheduler";
 import { ElectronicsForU } from "./WebShops/ElectronicsForU";
 import { Gamestop } from "./WebShops/Gamestop";
 import { Libro } from "./WebShops/Libro";
-import { ChatBot } from "./Services/Bot/ChatBot";
 import { ChatFileRepo } from "./Repos/ChatFileRepo";
-import { FileStorage } from "./Services/FileStorage";
+import { FileStorage } from "./Storage/FileStorage";
+import { ChatBot } from "./Bot/ChatBot";
 
 const shops = [
     Libro,

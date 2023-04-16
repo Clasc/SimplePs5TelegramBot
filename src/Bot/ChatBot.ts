@@ -1,8 +1,7 @@
 import TelegramBot from "node-telegram-bot-api";
-import { BotCredentials } from "../../Config/BotCredentials";
-import { ChatRepo } from "../../Repos/ChatRepo";
-import { WebShop } from "../../WebShops/WebShop";
 import { Bot } from "./Bot";
+import { BotCredentials } from "../Config/BotCredentials";
+import { ChatRepo } from "../Repos/ChatRepo";
 
 export const ChatBot: (chatRepo: ChatRepo) => Bot = (chatRepo: ChatRepo) => {
     const telegramBot = new TelegramBot(BotCredentials.token, { polling: true });
@@ -43,7 +42,7 @@ export const ChatBot: (chatRepo: ChatRepo) => Bot = (chatRepo: ChatRepo) => {
         });
     }
 
-    const sendMessage = async (message:string) => {
+    const sendMessage = async (message: string) => {
         const chats = await chatRepo.getChats();
         for (const chat of Array.from(chats)) {
             try {

@@ -1,4 +1,4 @@
-import { DataStorage } from "../Services/DataStorage";
+import { DataStorage } from "../Storage/DataStorage";
 import { ChatRepo } from "./ChatRepo";
 
 export const ChatFileRepo: (dataStorage: DataStorage) => ChatRepo = (dataStorage) => {
