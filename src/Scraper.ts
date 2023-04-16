@@ -2,6 +2,7 @@ import rp from "request-promise";
 
 import { WebShop } from "./WebShops/WebShop";
 import { Bot } from "./Bot/Bot";
+import { getMessage } from "./getMessage/getMessage";
 
 export const Scraper = (bot: Bot) => {
     const scrape = async (shops: WebShop[]) => {
@@ -9,7 +10,7 @@ export const Scraper = (bot: Bot) => {
             try {
                 const res = await rp(shop.productPage);
                 if (shop.hasPs5(res)) {
-                    bot.sendMessage(`${shop.name} has a Ps5! \n See here: \n ${shop.productPage}`);
+                    bot.sendMessage(getMessage(shop));
                 }
             }
             catch (error) {
