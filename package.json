@@ -13,18 +13,19 @@
   "author": "cl",
   "license": "ISC",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.5",
-    "dotenv": "^8.2.0",
+    "cheerio": "1.0.0-rc.5",
+    "dotenv": "8.2.0",
     "fs": "0.0.1-security",
-    "node-telegram-bot-api": "^0.51.0",
-    "nodemon": "^2.0.7",
-    "puppeteer": "^7.0.4",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.6"
+    "node-telegram-bot-api": "0.51.0",
+    "nodemon": "2.0.7",
+    "puppeteer": "7.0.4",
+    "request": "2.88.2",
+    "request-promise": "4.2.6"
   },
   "devDependencies": {
-    "@types/cheerio": "^0.22.24",
-    "@types/node-telegram-bot-api": "^0.51.0",
-    "@types/request-promise": "^4.1.47"
+    "typescript": "5.0.4",
+    "@types/cheerio": "0.22.24",
+    "@types/node-telegram-bot-api": "0.51.0",
+    "@types/request-promise": "4.1.47"
   }
 }
