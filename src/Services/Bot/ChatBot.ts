@@ -1,6 +1,6 @@
 import TelegramBot from "node-telegram-bot-api";
 import { BotCredentials } from "../../Config/BotCredentials";
-import { ChatRepo } from "../../Repos/Repo";
+import { ChatRepo } from "../../Repos/ChatRepo";
 import { WebShop } from "../../WebShops/WebShop";
 import { Bot } from "./Bot";
 

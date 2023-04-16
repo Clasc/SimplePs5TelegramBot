@@ -9,6 +9,7 @@ import { Gamestop } from "./WebShops/Gamestop";
 import { Libro } from "./WebShops/Libro";
 import { ChatBot } from "./Services/Bot/ChatBot";
 import { ChatFileRepo } from "./Repos/ChatFileRepo";
+import { FileStorage } from "./Services/FileStorage";
 
 const shops = [
     Libro,
@@ -17,8 +18,8 @@ const shops = [
     //MediaMarkt,
     //Otto
 ];
-
-const repo = ChatFileRepo();
+const fileStore = FileStorage();
+const repo = ChatFileRepo(fileStore);
 const bot = ChatBot(repo);
 const scraper = Scraper(bot);
 const scheduler = Scheduler({
