@@ -7,8 +7,10 @@ import { Scheduler } from "./Services/Scheduler";
 import { ElectronicsForU } from "./WebShops/ElectronicsForU";
 import { Gamestop } from "./WebShops/Gamestop";
 import { Libro } from "./WebShops/Libro";
+import { ChatBot } from "./Services/Bot/ChatBot";
+import { ChatFileRepo } from "./Repos/ChatFileRepo";
 
-let shops = [
+const shops = [
     Libro,
     Gamestop,
     ElectronicsForU,
@@ -16,10 +18,10 @@ let shops = [
     //Otto
 ];
 
-
-let scraper = new Scraper();
-
-let scheduler = new Scheduler({
+const repo = ChatFileRepo();
+const bot = ChatBot(repo);
+const scraper = Scraper(bot);
+const scheduler = Scheduler({
     job: () => scraper.scrape(shops),
     timeout: 60000
 });

@@ -1,25 +1,20 @@
 import { EventEmitter } from "node-telegram-bot-api";
 
-export class Scheduler {
-    private options: { timeout: number, job: () => void }
-    private static events = { start: "started", end: "executed" };
-    private emitter = new EventEmitter();
+const events = { start: "started", end: "executed" } as const;
 
-    constructor(options: { timeout: number, job: () => void }) {
-        this.options = options;
-    }
-
-    public run(): void {
-        this.emitter.on(Scheduler.events.start, () => {
-            this.options.job();
-            this.emitter.emit(Scheduler.events.end);
+export const Scheduler = (options: { timeout: number, job: () => void }) => {
+    const emitter = new EventEmitter();
+    const run = ()=> {
+        emitter.on(events.start, () => {
+            options.job();
+            emitter.emit(events.end);
         });
 
-        this.emitter.on(Scheduler.events.end, () => {
-            setTimeout(() => this.emitter.emit(Scheduler.events.start), this.options.timeout);
+        emitter.on(events.end, () => {
+            setTimeout(() => emitter.emit(events.start), options.timeout);
         });
 
-        this.emitter.emit(Scheduler.events.start);
+        emitter.emit(events.start);
     }
-
+    return {run};
 }
